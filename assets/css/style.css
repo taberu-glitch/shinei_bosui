@@ -69,18 +69,40 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
    Loading
    ========================================================= */
 .c-loading {
-  position: fixed; inset: 0; z-index: 1000; background: var(--grad);
-  display: grid; place-items: center; transition: opacity .6s ease, visibility .6s;
+  position: fixed; inset: 0; z-index: 1000; overflow: hidden;
+  background: var(--c-white); display: grid; place-items: center;
 }
-.c-loading.is-done { opacity: 0; visibility: hidden; }
-.c-loading__bubbles { display: flex; gap: 12px; }
-.c-loading__bubbles span {
-  width: 16px; height: 16px; border-radius: 50%; background: rgba(255,255,255,.9);
-  animation: bubble 1s ease-in-out infinite;
+.c-loading.is-done { display: none; }
+.c-loading__center { display: flex; flex-direction: column; align-items: center; gap: 24px; transition: opacity .3s; }
+.c-loading__emblem { width: clamp(180px, 22vw, 260px); height: auto; overflow: visible; }
+.c-loading__wave { animation: loadingWave 2.4s linear infinite; }
+.c-loading__wave.-back { animation-duration: 3.6s; animation-direction: reverse; }
+@keyframes loadingWave { from { transform: translateX(0); } to { transform: translateX(-3956px); } }
+.c-loading__num { font-family: var(--ff-num); font-weight: 700; font-size: 16px; letter-spacing: .14em; color: var(--c-blue); font-variant-numeric: tabular-nums; }
+
+/* 退場：画面を水の帯が下から上へ通り抜ける */
+.c-loading__flood {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='60'%3E%3Cpath d='M0 30 Q150 0 300 30 T600 30 V60 H0Z'/%3E%3C/svg%3E");
+  --wave-b: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='60'%3E%3Cpath d='M0 30 Q150 60 300 30 T600 30 V0 H0Z'/%3E%3C/svg%3E");
+  position: absolute; left: 0; top: 0; width: 100%; height: calc(100vh + 120px); height: calc(100lvh + 120px);
+  background: var(--grad); transform: translateY(100vh); visibility: hidden;
+  -webkit-mask-image: var(--wave), linear-gradient(#000, #000), var(--wave-b);
+          mask-image: var(--wave), linear-gradient(#000, #000), var(--wave-b);
+  -webkit-mask-size: 600px 60px, 100% calc(100% - 118px), 600px 60px;
+          mask-size: 600px 60px, 100% calc(100% - 118px), 600px 60px;
+  -webkit-mask-repeat: repeat-x, no-repeat, repeat-x;
+          mask-repeat: repeat-x, no-repeat, repeat-x;
+  -webkit-mask-position: 0 0, 0 59px, 300px 100%;
+          mask-position: 0 0, 0 59px, 300px 100%;
 }
-.c-loading__bubbles span:nth-child(2) { animation-delay: .15s; }
-.c-loading__bubbles span:nth-child(3) { animation-delay: .3s; }
-@keyframes bubble { 0%,100% { transform: translateY(0) scale(.8); opacity: .6; } 50% { transform: translateY(-14px) scale(1); opacity: 1; } }
+.c-loading.is-leave .c-loading__flood { visibility: visible; animation: loadingFlood 1.5s cubic-bezier(.65, 0, .35, 1) forwards, loadingFlow 1.5s linear forwards; }
+@keyframes loadingFlood { from { transform: translateY(100vh); } to { transform: translateY(calc(-100% - 2px)); } }
+@keyframes loadingFlow {
+  from { -webkit-mask-position: 0 0, 0 59px, 300px 100%; mask-position: 0 0, 0 59px, 300px 100%; }
+  to   { -webkit-mask-position: -600px 0, 0 59px, 900px 100%; mask-position: -600px 0, 0 59px, 900px 100%; }
+}
+.c-loading.is-clear { background: transparent; }
+.c-loading.is-clear .c-loading__center { opacity: 0; transition: none; }
 @media (prefers-reduced-motion: reduce) { .c-loading { display: none; } }
 
 /* =========================================================
