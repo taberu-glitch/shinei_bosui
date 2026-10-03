@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ysabeau:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=20261003b">
 </head>
 
 <body class="page-recruit">
@@ -43,7 +43,7 @@
   </div>
   <div class="c-loading__flood"></div>
 </div>
-<script>try{if(sessionStorage.getItem('shinei-loaded')){document.getElementById('loading').className+=' is-done';}}catch(e){}</script>
+<script>/* トップページは毎回表示。下層ページは同じ訪問中の2回目以降は省略 */try{if(!document.body.classList.contains('page-home')&&sessionStorage.getItem('shinei-loaded')){document.getElementById('loading').className+=' is-done';}}catch(e){}</script>
 
 <header class="l-header" id="header">
   <div class="l-header__inner">
@@ -235,6 +235,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v=20261003b"></script>
 </body>
 </html>

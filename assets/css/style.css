@@ -103,7 +103,12 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 .c-loading.is-clear { background: transparent; }
 .c-loading.is-clear .c-loading__center { opacity: 0; transition: none; }
-@media (prefers-reduced-motion: reduce) { .c-loading { display: none; } }
+/* 動きを減らす設定の端末：波の揺れと水の帯を止め、満水後にフェードで表示 */
+@media (prefers-reduced-motion: reduce) {
+  .c-loading__wave { animation: none; }
+  .c-loading.is-leave { opacity: 0; transition: opacity .6s ease; }
+  .c-loading.is-leave .c-loading__flood { animation: none; visibility: hidden; }
+}
 
 /* =========================================================
    Header

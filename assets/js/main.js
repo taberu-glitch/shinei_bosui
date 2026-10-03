@@ -5,7 +5,7 @@
   (function () {
     var loader = document.getElementById('loading');
     if (!loader || loader.classList.contains('is-done')) return;
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { loader.classList.add('is-done'); return; }
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var level = document.getElementById('loadingLevel');
     var num = document.getElementById('loadingNum');
     var H = 4135, MIN = 1400, start = performance.now(), p = 0, loaded = false;
@@ -24,8 +24,12 @@
     }
     function leave() {
       loader.classList.add('is-leave');
-      setTimeout(function () { loader.classList.add('is-clear'); }, 750);
-      setTimeout(function () { loader.classList.add('is-done'); }, 1550);
+      if (reduced) {
+        setTimeout(function () { loader.classList.add('is-done'); }, 650);
+      } else {
+        setTimeout(function () { loader.classList.add('is-clear'); }, 750);
+        setTimeout(function () { loader.classList.add('is-done'); }, 1550);
+      }
       try { sessionStorage.setItem('shinei-loaded', '1'); } catch (e) {}
     }
     requestAnimationFrame(tick);
