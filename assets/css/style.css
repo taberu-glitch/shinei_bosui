@@ -319,7 +319,9 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
    ========================================================= */
 .p-hero { position: relative; min-height: min(86vh, 820px); display: flex; align-items: center; color: var(--c-white); overflow: hidden; }
 .p-hero__img { position: absolute; inset: 0; }
-.p-hero__img .c-img { object-position: center top; }
+/* 社屋写真：看板が見出しと重ならないよう、写真を拡大して左寄せ（看板が右側に来る） */
+.p-hero__img { background: var(--c-navy); }
+.p-hero__img .c-img { width: 140%; max-width: none; object-position: left top; }
 .p-hero__img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(9,30,45,.78) 0%, rgba(0,111,191,.45) 55%, rgba(49,238,212,.15) 100%); }
 .p-hero__inner { position: relative; z-index: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 80px 32px 120px; }
 .p-hero__sub { font-weight: 700; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: .12em; }
@@ -338,8 +340,11 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 @keyframes scrolldown { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 @media (max-width: 768px) {
   .p-hero { min-height: 560px; }
-  .p-hero__inner { padding: 56px 16px 120px; }
+  .p-hero__inner { padding: max(200px, 50vw) 16px 120px; }
   .p-hero__btns .c-btn { width: 100%; }
+  /* スマホ：写真を上部に置き、看板を見出しの上に見せる。下は紺へなじませる */
+  .p-hero__img .c-img { width: 160%; height: auto; aspect-ratio: 1477 / 1108; margin-left: -30%; object-position: center; }
+  .p-hero__img::after { background: linear-gradient(180deg, rgba(9,30,45,.15) 0%, rgba(9,30,45,.35) 22%, rgba(9,30,45,.88) 46%, var(--c-navy) 56%); }
 }
 
 /* メッセージ（画像＋テキスト） */
