@@ -95,7 +95,10 @@
       if (!btn) return;
       filter.querySelectorAll('button').forEach(function (b) { b.classList.toggle('is-active', b === btn); });
       var f = btn.getAttribute('data-filter');
-      cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat') === f); });
+      var shown = 0;
+      cards.forEach(function (c) { c.hidden = !(f === 'all' || c.getAttribute('data-cat') === f); if (!c.hidden) shown++; });
+      var empty = document.querySelector('.c-works-empty');
+      if (empty) empty.hidden = shown > 0;
     });
   }
 
@@ -127,6 +130,29 @@
       }
     });
   }
+
+  // 施工実績：Before/After スライダー
+  document.querySelectorAll('.c-ba').forEach(function (ba) {
+    var range = ba.querySelector('.c-ba__range');
+    if (!range) return;
+    var set = function () { ba.style.setProperty('--pos', range.value + '%'); };
+    var fromX = function (x) {
+      var r = ba.getBoundingClientRect();
+      range.value = Math.max(0, Math.min(100, (x - r.left) / r.width * 100));
+      set();
+    };
+    var dragging = false;
+    range.addEventListener('input', set); // キーボード操作（←→）
+    ba.addEventListener('pointerdown', function (e) {
+      dragging = true; fromX(e.clientX);
+      if (ba.setPointerCapture) ba.setPointerCapture(e.pointerId);
+    });
+    ba.addEventListener('pointermove', function (e) { if (dragging) fromX(e.clientX); });
+    ['pointerup', 'pointercancel', 'lostpointercapture'].forEach(function (t) {
+      ba.addEventListener(t, function () { dragging = false; });
+    });
+    set();
+  });
 
   // ページトップ
   document.querySelectorAll('.c-pagetop').forEach(function (a) {

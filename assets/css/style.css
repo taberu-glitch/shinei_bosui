@@ -613,3 +613,22 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 /* 仮原稿マーカー（body の is-draft-mode を外すと消える） */
 .is-draft-mode .-draft { background-color: rgba(255, 230, 0, .28); outline: 2px dashed rgba(230, 180, 0, .85); outline-offset: 4px; border-radius: 2px; }
 .is-draft-mode .l-footer__copy .-draft { background-color: transparent; background-image: var(--grad); outline-offset: 8px; }
+
+/* ご依頼の流れの下：着工までの目安・お支払い方法 */
+.c-flow-info { max-width: 800px; margin: 48px auto 0; }
+.c-works-card__tags .-painting { background: var(--c-teal); color: var(--c-white); }
+
+/* 施工実績：Before/After スライダー */
+.c-ba { position: relative; aspect-ratio: 4 / 3; overflow: hidden; cursor: ew-resize; touch-action: pan-y; user-select: none; -webkit-user-select: none; background: var(--c-pale); }
+.c-ba__img { display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.c-ba__before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.c-ba__label { position: absolute; top: 12px; font-size: 11px; font-weight: 700; letter-spacing: .08em; padding: 3px 10px; border-radius: 999px; color: var(--c-white); pointer-events: none; }
+.c-ba__label.-before { left: 12px; background: rgba(9,30,45,.75); }
+.c-ba__label.-after { right: 12px; background: var(--c-blue); }
+.c-ba__handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: var(--c-white); box-shadow: 0 0 6px rgba(0,0,0,.3); pointer-events: none; }
+.c-ba__handle::after { content: ""; position: absolute; top: 50%; left: 50%; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%; background: var(--c-white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23006FBF' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l-6 6 6 6M15 6l6 6-6 6'/%3E%3C/svg%3E") center / 22px no-repeat; box-shadow: 0 2px 8px rgba(0,0,0,.25); }
+.c-ba__range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; pointer-events: none; -webkit-appearance: none; appearance: none; }
+.c-ba__range::-webkit-slider-thumb { -webkit-appearance: none; width: 44px; height: 100vh; }
+.c-ba__range::-moz-range-thumb { width: 44px; height: 100vh; border: 0; }
+.c-ba:has(.c-ba__range:focus-visible) .c-ba__handle::after { outline: 3px solid var(--c-teal); outline-offset: 2px; }
+.c-works-empty { text-align: center; padding: 40px 0; opacity: .7; }
