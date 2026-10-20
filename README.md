@@ -49,3 +49,11 @@ contact.html の form に送信先URL（action）を設定し、`data-endpoint="
 1. `assets/img/works/` に `名前_before.jpg`（施工前）と `名前_after.jpg`（施工後）を入れる（横長4:3推奨。表札・看板・ナンバーはぼかす）
 2. works.html の `<ul class="c-works-grid">` 内の `<li class="c-works-card">…</li>` を1つコピーし、画像名・タイトル・タグを書き換える
 3. `data-cat` は waterproofing（防水工事）／painting（外壁塗装）／repair（雨漏り補修）のいずれか
+
+## SEO対策（2026-10-19 追加）
+- 本番ドメイン `https://shinei1991.jp/` を前提に、全ページへ canonical・og:url・絶対URLの og:image・favicon を設定
+- 構造化データ（JSON-LD）：トップ＝事業者情報（住所・電話・営業時間・対応エリア）/ 各下層＝パンくず / 防水・塗装・雨漏り＝サービス / 採用＝求人情報（Googleしごと検索用）
+- `sitemap.xml` と `robots.txt` をルートに追加
+- 対応エリア（構造化データ内）：所沢市・狭山市・入間市・川越市・新座市・三芳町・東村山市・清瀬市・東大和市（**要確認**）
+- 求人情報の掲載期限（validThrough）は 2027-03-31。募集を続ける場合は更新すること
+- ドメインを変える場合は各HTMLの `shinei1991.jp` と sitemap.xml / robots.txt を一括置換
