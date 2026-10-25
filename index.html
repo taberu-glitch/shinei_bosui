@@ -15,10 +15,13 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <!-- ▼ 計測タグ（Google アナリティクス / タグマネージャー）は公開時にここへ追加 -->
+<link rel="preload" as="image" href="assets/img/top/hero.webp" imagesrcset="assets/img/top/hero-800.webp 800w, assets/img/top/hero-1200.webp 1200w, assets/img/top/hero.webp 1477w" imagesizes="(max-width: 768px) 160vw, 140vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ysabeau:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20261006">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Ysabeau:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ysabeau:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ysabeau:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap"></noscript>
+<link rel="stylesheet" href="assets/css/style.css?v=20261025">
 <!-- ▼ SEO（canonical / 構造化データ） -->
 <link rel="canonical" href="https://shinei1991.jp/">
 <meta property="og:url" content="https://shinei1991.jp/">
@@ -241,7 +244,7 @@
 
 <section class="p-hero">
   <!-- 画像差し替え：assets/img/top/hero.jpg -->
-  <div class="p-hero__img"><img src="assets/img/top/hero.jpg" alt="" class="c-img"></div>
+  <div class="p-hero__img"><img src="assets/img/top/hero.webp" srcset="assets/img/top/hero-800.webp 800w, assets/img/top/hero-1200.webp 1200w, assets/img/top/hero.webp 1477w" sizes="(max-width: 768px) 160vw, 140vw" width="1477" height="1108" alt="" class="c-img" fetchpriority="high" decoding="async"></div>
   <div class="p-hero__inner">
     <p class="p-hero__sub">埼玉県所沢市の防水・塗装工事</p>
     <h1 class="p-hero__catch -draft">暮らしを、<br>雨から守る。</h1>
@@ -263,7 +266,7 @@
       <div class="c-align-l"><a href="company.html" class="c-btn"><span>会社情報を見る</span></a></div>
     </div>
     <!-- 画像差し替え：assets/img/top/message.jpg -->
-    <figure class="p-message__img"><img src="assets/img/top/message.jpg" alt="有限会社新栄サービスの社屋" class="c-img"></figure>
+    <figure class="p-message__img"><img src="assets/img/top/message.webp" srcset="assets/img/top/message-800.webp 800w, assets/img/top/message.webp 1200w" sizes="(max-width: 768px) 92vw, 50vw" width="1200" height="800" alt="有限会社新栄サービスの社屋" class="c-img" decoding="async" loading="lazy"></figure>
   </div>
 </section>
 
@@ -274,7 +277,7 @@
       <li>
         <a href="waterproofing.html" class="c-svc-card">
           <!-- 画像：assets/img/service/waterproofing-roof.jpg -->
-          <figure><img src="assets/img/service/waterproofing-roof.jpg" alt="防水工事" class="c-img"></figure>
+          <figure><img src="assets/img/service/waterproofing-roof.webp" srcset="assets/img/service/waterproofing-roof-800.webp 800w, assets/img/service/waterproofing-roof.webp 1200w" sizes="(max-width: 768px) 92vw, 50vw" width="1200" height="800" alt="防水工事" class="c-img" decoding="async" loading="lazy"></figure>
           <div class="c-svc-card__body">
             <p class="-en">Waterproofing</p>
             <h3>防水工事</h3>
@@ -286,7 +289,7 @@
       <li>
         <a href="painting.html" class="c-svc-card">
           <!-- 画像：assets/img/service/painting-work.jpg -->
-          <figure><img src="assets/img/service/painting-work.jpg" alt="外壁塗装" class="c-img"></figure>
+          <figure><img src="assets/img/service/painting-work.webp" srcset="assets/img/service/painting-work-800.webp 800w, assets/img/service/painting-work.webp 1200w" sizes="(max-width: 768px) 92vw, 50vw" width="1200" height="800" alt="外壁塗装" class="c-img" decoding="async" loading="lazy"></figure>
           <div class="c-svc-card__body">
             <p class="-en">Painting</p>
             <h3>外壁塗装</h3>
@@ -298,7 +301,7 @@
       <li>
         <a href="repair.html" class="c-svc-card">
           <!-- 画像：assets/img/service/repair-leak.jpg -->
-          <figure><img src="assets/img/service/repair-leak.jpg" alt="雨漏り調査・補修" class="c-img"></figure>
+          <figure><img src="assets/img/service/repair-leak.webp" srcset="assets/img/service/repair-leak-800.webp 800w, assets/img/service/repair-leak.webp 1200w" sizes="(max-width: 768px) 92vw, 50vw" width="1200" height="800" alt="雨漏り調査・補修" class="c-img" decoding="async" loading="lazy"></figure>
           <div class="c-svc-card__body">
             <p class="-en">Leak Repair</p>
             <h3>雨漏り調査・補修</h3>
@@ -332,8 +335,8 @@
       <li class="c-works-card" data-cat="waterproofing">
         <!-- 画像：assets/img/works/urethane_before.jpg（施工前）／urethane_after.jpg（施工後） -->
         <div class="c-ba" style="--pos:50%">
-          <img src="assets/img/works/urethane_after.jpg" alt="ウレタン塗膜防水工事の施工後" class="c-ba__img" loading="lazy">
-          <div class="c-ba__before"><img src="assets/img/works/urethane_before.jpg" alt="ウレタン塗膜防水工事の施工前" class="c-ba__img" loading="lazy"></div>
+          <img src="assets/img/works/urethane_after.webp" srcset="assets/img/works/urethane_after-800.webp 800w, assets/img/works/urethane_after.webp 1200w" sizes="(max-width: 768px) 92vw, 380px" width="1200" height="900" alt="ウレタン塗膜防水工事の施工後" class="c-ba__img" loading="lazy" decoding="async">
+          <div class="c-ba__before"><img src="assets/img/works/urethane_before.webp" srcset="assets/img/works/urethane_before-800.webp 800w, assets/img/works/urethane_before.webp 1200w" sizes="(max-width: 768px) 92vw, 380px" width="1200" height="900" alt="ウレタン塗膜防水工事の施工前" class="c-ba__img" loading="lazy" decoding="async"></div>
           <span class="c-ba__label -before" aria-hidden="true">BEFORE</span>
           <span class="c-ba__label -after" aria-hidden="true">AFTER</span>
           <span class="c-ba__handle" aria-hidden="true"></span>
@@ -347,8 +350,8 @@
       <li class="c-works-card" data-cat="waterproofing">
         <!-- 画像：assets/img/works/sheet_before.jpg（施工前）／sheet_after.jpg（施工後） -->
         <div class="c-ba" style="--pos:50%">
-          <img src="assets/img/works/sheet_after.jpg" alt="シート防水工事の施工後" class="c-ba__img" loading="lazy">
-          <div class="c-ba__before"><img src="assets/img/works/sheet_before.jpg" alt="シート防水工事の施工前" class="c-ba__img" loading="lazy"></div>
+          <img src="assets/img/works/sheet_after.webp" srcset="assets/img/works/sheet_after-800.webp 800w, assets/img/works/sheet_after.webp 1200w" sizes="(max-width: 768px) 92vw, 380px" width="1200" height="900" alt="シート防水工事の施工後" class="c-ba__img" loading="lazy" decoding="async">
+          <div class="c-ba__before"><img src="assets/img/works/sheet_before.webp" srcset="assets/img/works/sheet_before-800.webp 800w, assets/img/works/sheet_before.webp 1200w" sizes="(max-width: 768px) 92vw, 380px" width="1200" height="900" alt="シート防水工事の施工前" class="c-ba__img" loading="lazy" decoding="async"></div>
           <span class="c-ba__label -before" aria-hidden="true">BEFORE</span>
           <span class="c-ba__label -after" aria-hidden="true">AFTER</span>
           <span class="c-ba__handle" aria-hidden="true"></span>
@@ -363,8 +366,8 @@
       <li class="c-works-card" data-cat="waterproofing">
         <!-- 画像：assets/img/works/frp_before.jpg（施工前）／frp_after.jpg（施工後） -->
         <div class="c-ba" style="--pos:50%">
-          <img src="assets/img/works/frp_after.jpg" alt="FRP防水工事の施工後" class="c-ba__img" loading="lazy">
-          <div class="c-ba__before"><img src="assets/img/works/frp_before.jpg" alt="FRP防水工事の施工前" class="c-ba__img" loading="lazy"></div>
+          <img src="assets/img/works/frp_after.webp" srcset="assets/img/works/frp_after-800.webp 800w, assets/img/works/frp_after.webp 1200w" sizes="(max-width: 768px) 92vw, 380px" width="1200" height="900" alt="FRP防水工事の施工後" class="c-ba__img" loading="lazy" decoding="async">
+          <div class="c-ba__before"><img src="assets/img/works/frp_before.webp" srcset="assets/img/works/frp_before-800.webp 800w, assets/img/works/frp_before.webp 1200w" sizes="(max-width: 768px) 92vw, 380px" width="1200" height="900" alt="FRP防水工事の施工前" class="c-ba__img" loading="lazy" decoding="async"></div>
           <span class="c-ba__label -before" aria-hidden="true">BEFORE</span>
           <span class="c-ba__label -after" aria-hidden="true">AFTER</span>
           <span class="c-ba__handle" aria-hidden="true"></span>
@@ -462,6 +465,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20261006"></script>
+<script src="assets/js/main.js?v=20261025"></script>
 </body>
 </html>

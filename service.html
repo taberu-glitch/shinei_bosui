@@ -17,8 +17,10 @@
 <!-- ▼ 計測タグ（Google アナリティクス / タグマネージャー）は公開時にここへ追加 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ysabeau:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20261006">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Ysabeau:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ysabeau:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ysabeau:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap"></noscript>
+<link rel="stylesheet" href="assets/css/style.css?v=20261025">
 <!-- ▼ SEO（canonical / 構造化データ） -->
 <link rel="canonical" href="https://shinei1991.jp/service.html">
 <meta property="og:url" content="https://shinei1991.jp/service.html">
@@ -159,7 +161,7 @@
     
     <div class="p-svc-row">
       <!-- 画像：assets/img/service/waterproofing-roof.jpg -->
-      <figure><img src="assets/img/service/waterproofing-roof.jpg" alt="防水工事" class="c-img"></figure>
+      <figure><img src="assets/img/service/waterproofing-roof.webp" srcset="assets/img/service/waterproofing-roof-800.webp 800w, assets/img/service/waterproofing-roof.webp 1200w" sizes="(max-width: 768px) 92vw, 50vw" width="1200" height="800" alt="防水工事" class="c-img" decoding="async" loading="lazy"></figure>
       <div class="p-svc-row__text">
         <p class="-en">Waterproofing</p>
         <h3>防水工事</h3>
@@ -169,7 +171,7 @@
     </div>
     <div class="p-svc-row">
       <!-- 画像：assets/img/service/painting-work.jpg -->
-      <figure><img src="assets/img/service/painting-work.jpg" alt="外壁塗装" class="c-img"></figure>
+      <figure><img src="assets/img/service/painting-work.webp" srcset="assets/img/service/painting-work-800.webp 800w, assets/img/service/painting-work.webp 1200w" sizes="(max-width: 768px) 92vw, 50vw" width="1200" height="800" alt="外壁塗装" class="c-img" decoding="async" loading="lazy"></figure>
       <div class="p-svc-row__text">
         <p class="-en">Painting</p>
         <h3>外壁塗装</h3>
@@ -179,7 +181,7 @@
     </div>
     <div class="p-svc-row">
       <!-- 画像：assets/img/service/repair-leak.jpg -->
-      <figure><img src="assets/img/service/repair-leak.jpg" alt="雨漏り調査・補修" class="c-img"></figure>
+      <figure><img src="assets/img/service/repair-leak.webp" srcset="assets/img/service/repair-leak-800.webp 800w, assets/img/service/repair-leak.webp 1200w" sizes="(max-width: 768px) 92vw, 50vw" width="1200" height="800" alt="雨漏り調査・補修" class="c-img" decoding="async" loading="lazy"></figure>
       <div class="p-svc-row__text">
         <p class="-en">Leak Repair</p>
         <h3>雨漏り調査・補修</h3>
@@ -261,6 +263,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=20261006"></script>
+<script src="assets/js/main.js?v=20261025"></script>
 </body>
 </html>

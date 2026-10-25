@@ -8,10 +8,16 @@
     var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var level = document.getElementById('loadingLevel');
     var num = document.getElementById('loadingNum');
-    var H = 4135, MIN = 1400, start = performance.now(), p = 0, loaded = false;
-    window.addEventListener('load', function () { loaded = true; });
-    if (document.readyState === 'complete') loaded = true;
-    setTimeout(function () { loaded = true; }, 6000); // 念のため6秒で完了扱い
+    var H = 4135, MIN = 1000, start = performance.now(), p = 0, loaded = false;
+    // ファーストビュー（ヒーロー画像）が準備できた時点で完了。全画像の読み込みは待たない
+    var hero = document.querySelector('.p-hero__img img');
+    var done = function () { loaded = true; };
+    if (hero) {
+      if (hero.complete) done();
+      else { hero.addEventListener('load', done); hero.addEventListener('error', done); }
+    } else if (document.readyState !== 'loading') done();
+    else document.addEventListener('DOMContentLoaded', done);
+    setTimeout(done, 3000); // 念のため3秒で完了扱い
     function tick(now) {
       var t = Math.min((now - start) / MIN, 1);
       var target = loaded ? t : Math.min(t, 0.9); // 読み込み完了まで90%で待つ
